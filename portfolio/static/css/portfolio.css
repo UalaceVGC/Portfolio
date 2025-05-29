@@ -1,0 +1,655 @@
+/* Basic Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Fonte como no exemplo, Poppins ou similar */
+    background-color: rgb(32, 0, 80); /* A cor de fundo especificada */
+    color: #f0f0f0; /* Cor de texto clara para contraste */
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal devido a elementos posicionados */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header__title {
+    font-size: 1.8em;
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh; /* Altura mínima da viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+    position: relative; /* Para posicionar a ilustração 3D */
+    overflow: hidden; /* Importante para elementos 3D */
+}
+
+.hero__content {
+    display: flex;
+    flex-direction: column; /* Padrão para mobile */
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+    z-index: 10; /* Garante que o conteúdo textual esteja acima da ilustração */
+    max-width: 1000px; /* Limite a largura para melhor leitura */
+    width: 100%;
+}
+
+.hero__info {
+    text-align: center; /* Centraliza o texto por padrão */
+    flex: 1; /* Permite que o bloco de info ocupe espaço */
+    padding-right: 20px; /* Espaço entre texto e ilustração em desktop */
+}
+
+.greeting {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 5px;
+    display: flex; /* Para centralizar o ícone de mão */
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Espaço entre mão e texto */
+}
+
+/* Gradiente para o nome "Evander Inácio" */
+.hero__name.gradient-text {
+    font-size: 4.5em; /* Tamanho do nome */
+    font-weight: 700;
+    margin-bottom: 10px;
+    display: inline-block; /* Crucial para background-clip: text */
+
+    background: linear-gradient(90deg, #bb88ff 0%, #6a5acd 100%); /* Gradiente roxo/azul */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback */
+}
+
+/* Estilo para o texto digitando */
+.hero__description {
+    font-size: 1.8em;
+    color: #00bcd4; /* Cor azul para o texto digitado */
+    font-weight: 500;
+    margin-bottom: 30px;
+    white-space: nowrap; /* Impede que o texto quebre linha */
+    overflow: hidden; /* Esconde o texto que excede a largura */
+    border-right: 3px solid #00bcd4; /* Cursor piscando */
+    width: 0; /* Largura inicial zero para a animação */
+}
+
+/* Animação de digitação via JavaScript (classe adicionada por JS) */
+.typing-active {
+    animation: typing 4s steps(26, end) forwards, /* 26 caracteres em "Desenvolvedor Front-end" */
+               blink-caret .75s step-end infinite;
+}
+
+
+/* @keyframes para o efeito de digitação */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* @keyframes para o cursor piscando */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #00bcd4; }
+}
+
+
+/* Botão CTA */
+.cta-button {
+    display: inline-flex; /* Permite texto e ícone na mesma linha */
+    align-items: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background-color: transparent; /* Sem preenchimento */
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative; /* Para a borda gradiente */
+    overflow: hidden; /* Importante para esconder o gradiente fora da borda */
+    transition: all 0.3s ease;
+}
+
+/* Borda gradiente do botão */
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(90deg, #bb88ff, #6a5acd, #6a5acd); /* Gradiente */
+    z-index: -1; /* Atrás do conteúdo do botão */
+    border-radius: 10px; /* Um pouco maior que o botão para o efeito de borda */
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover::before {
+    transform: scale(1.05); /* Amplia a borda no hover */
+    box-shadow: 0 0 15px rgba(187, 136, 255, 0.6); /* Brilho suave */
+}
+
+.cta-button:hover {
+    color: #bb88ff; /* Cor do texto no hover */
+}
+
+.cta-button i {
+    font-size: 1em;
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover i {
+    transform: translateX(5px); /* Move a seta no hover */
+}
+
+
+/* Hero Illustration (Elementos 3D) */
+.hero__illustration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end; /* Empurra para a direita */
+    align-items: center;
+    pointer-events: none; /* Permite cliques através da ilustração */
+    z-index: 1; /* Abaixo do texto principal */
+    transform: translateX(10%); /* Ajusta a posição para a direita */
+}
+
+.hero__illustration img {
+    position: absolute;
+    user-select: none;
+    pointer-events: none;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.5)); /* Sombra para profundidade */
+}
+
+.main-char {
+    width: 50%; /* Ajuste o tamanho do personagem */
+    max-width: 700px;
+    bottom: 0;
+    right: 0;
+    transform: translateY(20px); /* Ligeiramente para cima */
+    z-index: 2; /* Acima de outros elementos da ilustração */
+}
+
+.cubes {
+    width: 10%;
+    max-width: 150px;
+    top: 10%;
+    right: 15%;
+    transform: rotate(30deg);
+    opacity: 0.8;
+}
+
+.pixel-dino {
+    width: 15%;
+    max-width: 200px;
+    bottom: 5%;
+    left: 10%;
+    filter: brightness(0.8);
+}
+
+.skull-icon {
+    width: 5%;
+    max-width: 80px;
+    top: 25%;
+    right: 10%;
+    transform: rotate(-15deg);
+    opacity: 0.7;
+}
+
+
+/* Section Titles */
+.section-title {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #fff;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #00bcd4; /* Cor de destaque */
+}
+
+/* Skills Section */
+.skills {
+    padding: 60px 0;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.skills__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.skill-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.skill-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.skill-item span {
+    font-size: 1em;
+    color: #fff;
+}
+
+/* Experience Section */
+.experience {
+    padding: 60px 0;
+}
+
+.experience__grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.experience-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.experience-card__header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.experience-card__header i {
+    font-size: 40px;
+    color: #00bcd4;
+}
+
+.experience-card__header h3 {
+    font-size: 1.8em;
+    color: #fff;
+}
+
+.experience-card__period {
+    font-size: 1em;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.experience-card__description {
+    font-size: 1.1em;
+    color: #f0f0f0;
+    margin-bottom: 20px;
+}
+
+.experience-card__tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.experience-card__tech img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 3px;
+}
+
+/* Projects Section */
+.projects {
+    padding: 60px 0;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.project-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 180px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card h3 {
+    font-size: 1.5em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 1em;
+    color: #f0f0f0;
+    margin-bottom: 15px;
+}
+
+.project-link {
+    color: #00bcd4;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #fff;
+}
+
+.projects__cta {
+    text-align: center;
+}
+
+.btn {
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn:hover {
+    background-color: #00a4b8;
+}
+
+/* Contact Section */
+.contact {
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact__content {
+    margin-bottom: 40px;
+}
+
+.contact__content p {
+    font-size: 1.2em;
+    color: #f0f0f0;
+    margin-bottom: 20px;
+}
+
+.contact__info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.contact__link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.contact__link:hover {
+    color: #00bcd4;
+}
+
+.contact__social {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    color: #fff;
+    font-size: 2em;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #00bcd4;
+}
+
+.contact__illustration {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.diamond {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.05);
+    position: absolute;
+    transform: rotate(45deg);
+    border-radius: 5px;
+}
+
+/* Positioning for the diamonds (adjust as needed) */
+.contact__illustration .diamond:nth-child(1) {
+    top: 10%;
+    left: 15%;
+}
+.contact__illustration .diamond:nth-child(2) {
+    top: 60%;
+    left: 80%;
+    width: 60px;
+    height: 60px;
+}
+.contact__illustration .diamond:nth-child(3) {
+    top: 80%;
+    left: 20%;
+    width: 100px;
+    height: 100px;
+}
+.contact__illustration .diamond:nth-child(4) {
+    top: 30%;
+    left: 60%;
+    width: 70px;
+    height: 70px;
+}
+
+
+/* Responsive Design */
+@media (min-width: 769px) {
+    .hero__content {
+        flex-direction: row; /* Em linha em telas maiores */
+        justify-content: space-between; /* Distribui conteúdo e imagem */
+        text-align: left; /* Alinha o texto à esquerda em desktop */
+    }
+
+    .hero__info {
+        text-align: left; /* Garante que o texto esteja à esquerda */
+        flex: 1; /* Permite que o bloco de info ocupe espaço */
+    }
+
+    .hero__links {
+        justify-content: flex-start; /* Alinha os links à esquerda */
+    }
+
+    .hero__illustration {
+        position: relative; /* Ajusta para ser parte do flexbox */
+        width: 50%; /* Ocupa metade da largura */
+        height: auto;
+        transform: none; /* Remove a translação absoluta */
+        display: block; /* Garante que ocupe o espaço */
+    }
+
+    .hero__illustration img {
+        position: relative; /* Ajusta para dentro do flexbox */
+        max-width: 100%;
+        height: auto;
+        display: block;
+        transform: none; /* Remove a translação absoluta */
+    }
+
+    .main-char {
+        position: absolute; /* De volta ao absoluto para posicionamento livre */
+        width: 70%; /* Ajuste o tamanho do personagem */
+        bottom: 0;
+        right: 0;
+        transform: translateY(20px);
+    }
+    .cubes, .pixel-dino, .skull-icon {
+        position: absolute;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero__name.gradient-text {
+        font-size: 3em;
+    }
+
+    .hero__description {
+        font-size: 1.5em;
+    }
+
+    .hero__content {
+        flex-direction: column;
+        gap: 20px; /* Reduz o espaçamento */
+    }
+
+    .hero__info {
+        padding-right: 0;
+    }
+
+    .hero__illustration {
+        position: relative;
+        width: 100%;
+        height: 300px; /* Altura fixa para mobile */
+        transform: none;
+        justify-content: center;
+        align-items: center;
+        margin-top: 40px; /* Espaço acima da ilustração */
+    }
+    .hero__illustration img {
+        position: absolute; /* Mantém as imagens internas como absolutas */
+        width: 70%;
+        max-width: 400px;
+    }
+    .main-char {
+        bottom: 0;
+        right: auto;
+        transform: translateY(0);
+    }
+    .cubes, .pixel-dino, .skull-icon {
+        width: 10%; /* Menores para mobile */
+    }
+    .cubes { top: 5%; right: 5%; }
+    .skull-icon { top: 15%; left: 5%; }
+    .pixel-dino { bottom: 5%; left: 5%; }
+
+    .skills__grid,
+    .projects__grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header__title {
+        font-size: 1.5em;
+    }
+
+    .hero__name.gradient-text {
+        font-size: 2.5em;
+    }
+
+    .hero__description {
+        font-size: 1.2em;
+    }
+
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .hero__illustration {
+        height: 250px;
+    }
+
+    .main-char {
+        width: 90%;
+    }
+
+    .contact__info {
+        gap: 10px;
+    }
+}
