@@ -2,171 +2,256 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ualace Vieira - Portfólio</title>
-    <link rel="stylesheet" href="{% static "css/portfolio.css" %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfólio de Ualace Vieira — Desenvolvedor Full‑Stack (Python, Django, JavaScript, React)." />
+  <title>Ualace Vieira — Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet"/>
+
 </head>
 <body>
-    <main>
-        <section class="hero">
-            <div class="container hero__content">
-                <div class="hero__info">
-                    <p class="greeting">Olá, o meu nome é</p>
-                    <h2 class="hero__name gradient-text">Ualace Vieira</h2>
-                    <p class="hero__description typing-effect" data-text="Desenvolvedor Front-end"></p>
-                    <a href="#portfolio" class="cta-button">
-                        Conheça meu portfólio <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-                <div class="hero__illustration">
-                    <img src="static/img/58ec3ab6-ea10-4324-a952-8843f7a265e2.jpg" alt="Foto" class="main-char">
-                    
+  <!-- HERO -->
+  <header class="hero">
+    <div class="halo"></div>
+    <div class="container hero-inner">
+      <div>
+        <div class="kicker">Olá, eu sou</div>
+        <h1 class="title">Ualace Vieira</h1>
+        <p>Desenvolvedor <strong>Full‑Stack</strong> com foco em <strong>Python/Django</strong> no back‑end e <strong>JavaScript/React</strong> no front‑end. Gosto de criar soluções limpas, rápidas e seguras — de APIs REST a interfaces modernas.</p>
+        <div class="actions">
+          <a class="btn" href="#projetos"><i class="ri-rocket-line"></i> Ver projetos</a>
+          <a class="btn outline" href="Ualace Vieira - Curriculo.pdf" target="_blank" rel="noopener"><i class="ri-download-2-line"></i> Baixar CV</a>
+        </div>
+      </div>
+      <div style="justify-self:center">
+        <div class="avatar card">
+          <img src="static/img/58ec3ab6-ea10-4324-a952-8843f7a265e2.jpg" alt="Foto de Ualace Vieira"/>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="container reveal">
+      <div class="section-head">
+        <h2 class="title">Habilidades</h2>
+        <span class="tag"><i class="ri-award-line"></i> 3+ anos estudando e construindo</span>
+      </div>
+      <div class="grid skills">
+        <div class="card card-pad skill-card">
+          <div class="skill-icon"><i class="ri-code-s-slash-line"></i></div>
+          <div>
+            <h3>Linguagens</h3>
+            <div class="muted">Python, JavaScript, SQL, C</div>
+            <div class="skill-level" aria-label="nível médio‑alto">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+        </div>
+        <div class="card card-pad skill-card">
+          <div class="skill-icon"><i class="ri-stack-line"></i></div>
+          <div>
+            <h3>Frameworks</h3>
+            <div class="muted">Django, React, Node.js (básico)</div>
+            <div class="skill-level">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+        </div>
+        <div class="card card-pad skill-card">
+          <div class="skill-icon"><i class="ri-database-2-line"></i></div>
+          <div>
+            <h3>Banco de Dados</h3>
+            <div class="muted">PostgreSQL, MySQL, SQLite</div>
+            <div class="skill-level">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+        </div>
+        <div class="card card-pad skill-card">
+          <div class="skill-icon"><i class="ri-tools-line"></i></div>
+          <div>
+            <h3>Ferramentas</h3>
+            <div class="muted">Git/GitHub, Docker (básico), Linux, Figma</div>
+            <div class="skill-level">
+              <span class="dot on"></span><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIÊNCIA -->
+    <section id="experiencia" class="container reveal">
+      <div class="section-head">
+        <h2 class="title">Experiência</h2>
+        <span class="tag"><i class="ri-briefcase-line"></i> Freelance & Colaborações</span>
+      </div>
+      <div class="grid xp">
+        <article class="card">
+          <div class="card-pad">
+            <div class="tag"><i class="ri-building-4-line"></i> Lexius Page</div>
+            <h3>Front‑end Developer</h3>
+            <small>Ago 2023 — Jan 2024</small>
+            <ul>
+              <li>Desenvolvimento e manutenção de interfaces em <strong>React</strong>, integração com <strong>APIs REST</strong>.</li>
+              <li>Otimização de assets e lazy‑loading, <strong>-32% no TTFB</strong> e melhora no Lighthouse.</li>
+              <li>Criação de componentes reutilizáveis e sistema de design simples.</li>
+            </ul>
+            <div class="pill-row">
+              <span class="tag">React</span>
+              <span class="tag">REST</span>
+              <span class="tag">Vite</span>
+              <span class="tag">CSS</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-pad">
+            <div class="tag"><i class="ri-building-4-line"></i> G7 Polaris</div>
+            <h3>Tecnico de Laboratorio</h3>
+            <small>Mar 2024 — Out 2024</small>
+            <ul>
+              <li>Manutenção, limpeza e troca de hardwares</li>
+              <li>Servidores e Rede: <strong>Suporte na implementação de servidores</strong> em escolas e postos de saude.</li>
+              <li>Substituição de peças em computadores e boot</li>
+            </ul>
+            <div class="pill-row">
+              <span class="tag">Redes</span>
+              <span class="tag">Servidores</span>
+              <span class="tag">Hardware</span>
+              
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJETOS -->
+    <section id="projetos" class="container reveal">
+      <div class="section-head">
+        <h2 class="title">Projetos em Destaque</h2>
+        <a class="btn outline" href="https://github.com/UalaceVGC" target="_blank" rel="noopener"><i class="ri-github-line"></i> Ver GitHub</a>
+      </div>
+      <div class="grid projects">
+        <article class="card project">
+          <div class="thumb">
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop" alt="API Django"/>
+          </div>
+          <div class="body">
+            <h3>REST API — Barbearia Millenium</h3>
+            <p class="muted">API em Django/DRF para gerenciamento de barbearia, agendamentos, comentarios, avaliação, (CRM). Autenticação, cadastro, paginação e filtros avançados.</p>
+            <div class="links">
+              <a class="btn" href="#" target="_blank"><i class="ri-external-link-line"></i> Demo</a>
+              <a class="btn outline" href="https://github.com/UalaceVGC/BARBER1" target="_blank"><i class="ri-github-line"></i> Código</a>
+            </div>
+          </div>
+        </article>
+        <article class="card project">
+            <div class="thumb">
+                <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop" alt="Dashboard React"/>
+            </div>
+            <div class="body">
+                <h3>Dashboard — Caer Bere</h3>
+                <p class="muted">Dashboard em React para acompanhar a pré-venda do livro, com informações de vendas, lista de interessados e integração com API de pagamentos. Foco em UX e acessibilidade.</p>
+                <div class="links">
+                    <a class="btn" href="#" target="_blank"><i class="ri-external-link-line"></i> Ver Pré-venda</a>
+                    <a class="btn outline" href="#" target="_blank"><i class="ri-github-line"></i> Código</a>
                 </div>
             </div>
-        </section>
-
-        <section class="skills">
-            <div class="container">
-                <h2 class="section-title">HABILIDADES</h2>
-                <div class="skills__grid">
-                    <div class="skill-item">
-                        <img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" alt="JavaScript">
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://img.icons8.com/?size=100&id=40670&format=png&color=000000" alt="JavaScript">
-                        <span>C</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://img.icons8.com/?size=100&id=13441&format=png&color=000000" alt="JavaScript">
-                        <span>Python</span>
-                    </div>
-                     <div class="skill-item">
-                        <img src="https://img.icons8.com/?size=100&id=40669&format=png&color=000000 alt="JavaScript">
-                        <span>C++</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://img.icons8.com/?size=100&id=LPmcJ9e0FU7K&format=png&color=000000" alt="JavaScript">
-                        <span>Django</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="JavaScript">
-                        <span>HTML5</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://img.icons8.com/?size=100&id=7gdY5qNXaKC0&format=png&color=000000" alt="">
-                        <span>CSS3</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://img.icons8.com/?size=100&id=rgPSE6nAB766&format=png&color=000000" alt="JavaScript">
-                        <span>SQL</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://img.icons8.com/?size=100&id=Wjn4XtfEFiGw&format=png&color=000000" alt="JavaScript">
-                        <span>XML</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://img.icons8.com/?size=100&id=20906&format=png&color=000000" alt="JavaScript">
-                        <span>Git</span>
-                    </div>
-                </div>
+        </article>
+        <article class="card project">
+          <div class="thumb">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" alt="Classificador"/>
+          </div>
+          <div class="body">
+            <h3>Detecção — Mask R‑CNN</h3>
+            <p class="muted">Experimento de visão computacional com Mask R‑CNN para identificação de doenças foliares na soja. Pipeline completo e métricas.</p>
+            <div class="links">
+              <a class="btn outline" href="https://rgsa.openaccesspublications.org/rgsa/article/view/11121" target="_blank"><i class="ri-file-list-line"></i> Artigo</a>
+              <a class="btn outline" href="https://colab.research.google.com/drive/1P_SPuV-S2g7an97P_q--gcUSHnX6wzmI" target="_blank"><i class="ri-github-line"></i> Código</a>
             </div>
-        </section>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <section class="experience">
-            <div class="container">
-                <h2 class="section-title">EXPERIÊNCIA</h2>
-                <div class="experience__grid">
-                    <div class="experience-card">
-                        <div class="experience-card__header">
-                            <i class="fas fa-briefcase"></i>
-                            <h3>Lexius Page</h3>
-                        </div>
-                        <p class="experience-card__period">Agosto 2023 - Jan 2024</p>
-                        <p class="experience-card__description">Desenvolvimento e manutenção de aplicações web, foco em front-end com React e integração com APIs RESTful.</p>
-                        <div class="experience-card__tech">
-                            <img src="https://img.icons8.com/?size=100&id=LPmcJ9e0FU7K&format=png&color=000000" alt="Django Icon">
-                            <img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" alt="JS Icon">
-                            <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML Icon">
-                            <img src="https://img.icons8.com/?size=100&id=7gdY5qNXaKC0&format=png&color=000000" alt="CSS Icon">
-                            <img src="https://img.icons8.com/?size=100&id=rgPSE6nAB766&format=png&color=000000" alt="SQL Icon">
-                            <img src="https://img.icons8.com/?size=100&id=Wjn4XtfEFiGw&format=png&color=000000" alt="XML Icon">
-                        </div>
-                    </div>
-                    <div class="experience-card">
-                        <div class="experience-card__header">
-                            <i class="fas fa-briefcase"></i>
-                            <h3>G7 Polaris</h3>
-                        </div>
-                        <p class="experience-card__period">Março 2024 - Outubro 2024</p>
-                        <p class="experience-card__description">Colaboração em projetos de desenvolvimento full-stack, atuando na lógica de back-end e otimização de banco de dados.</p>
-                        <div class="experience-card__tech">
-                            <img src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000" alt="HTML Icon">
-                            <img src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000" alt="JS Icon">
-                            <img src="https://img.icons8.com/?size=100&id=7gdY5qNXaKC0&format=png&color=000000" alt="CSS Icon">
-                            <img src="https://img.icons8.com/?size=100&id=rgPSE6nAB766&format=png&color=000000" alt="SQL Icon">
-                        </div>
-                    </div>
-                </div>
+    <!-- CONTATO -->
+    <section id="contato" class="container reveal">
+      <div class="section-head">
+        <h2 class="title">Contato</h2>
+        <span class="muted">Vamos conversar sobre oportunidades, freelas ou colaboração.</span>
+      </div>
+      <div class="grid contact-grid">
+        <div class="card card-pad">
+          <h3>Informações</h3>
+          <p class="muted">Prefere falar direto? Estou disponível nos canais abaixo.</p>
+          <div class="divider"></div>
+          <div class="grid" style="gap:.7rem">
+            <div class="tag"><i class="ri-mail-line"></i> ualacegd@gmail.com</div>
+            <div class="tag"><i class="ri-phone-line"></i> (77) 99903‑7255</div>
+            <div class="tag"><i class="ri-map-pin-line"></i> Bahia, Brasil</div>
+            <div class="socials">
+              <a href="https://github.com/UalaceVGC" target="_blank" aria-label="GitHub"><i class="ri-github-line"></i></a>
+              <a href="https://www.linkedin.com/in/ualace-vieira-557929284/" target="_blank" aria-label="LinkedIn"><i class="ri-linkedin-line"></i></a>
+              <a href="https://www.instagram.com/ualacethjk/" target="_blank" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
             </div>
-        </section>
-
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 class="section-title">PROJETOS</h2>
-                <div class="projects__grid">
-                    <div class="project-card">
-                        <h3>Barbearia Millenium</h3>
-                        <p>Breve descrição do projeto e tecnologias usadas.</p>
-                        <a href="#" class="project-link">Ver Projeto <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                     <div class="project-card">
-                        <h3>Em Construção</h3>
-                        <p>Breve descrição do projeto e tecnologias usadas.</p>
-                        <a href="#" class="project-link">Ver Projeto <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                     <div class="project-card">
-                        <h3>Em Construção</h3>
-                        <p>Breve descrição do projeto e tecnologias usadas.</p>
-                        <a href="#" class="project-link">Ver Projeto <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                     
-                </div>
-                <div class="projects__cta">
-                    <button class="btn btn--primary">
-                        <i class="fas fa-plus"></i> Mostrar mais projetos
-                    </button>
-                </div>
+          </div>
+          <div class="made">© <span id="yy"></span> Ualace Vieira. Feito com carinho e café.</div>
+        </div>
+        <form class="card card-pad" action="https://formspree.io/f/xbldkzzz" method="POST">
+          <h3>Envie uma mensagem</h3>
+          <div class="grid" style="grid-template-columns:1fr 1fr;gap:.8rem">
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input id="nome" name="nome" type="text" placeholder="Seu nome" required>
             </div>
-        </section>
-
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-title">AGRADECIMENTO & CONTATO</h2>
-                <div class="contact__content">
-                    <p>Entre em contato para saber mais sobre meu trabalho e discutir oportunidades.</p>
-                    <div class="contact__info">
-                        <a href="mailto:seu.email@example.com" class="contact__link"><i class="fas fa-envelope"></i> ualacecgd@gmail.com</a>
-                        <a href="tel:+5511987654321" class="contact__link"><i class="fas fa-phone"></i> (77) 99903-7255</a>
-                    </div>
-                    <div class="contact__social">
-                        <a href="https://www.linkedin.com/in/ualace-vieira-557929284/" class="social-icon" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/UalaceVGC" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.instagram.com/ualacethjk/" class="social-icon" target="_blank"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="contact__illustration">
-                    <div class="diamond"></div>
-                    <div class="diamond"></div>
-                    <div class="diamond"></div>
-                    <div class="diamond"></div>
-                </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="voce@email.com" required>
             </div>
-        </section>
-    </main>
+          </div>
+          <div class="field">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" placeholder="Como posso ajudar?" required></textarea>
+          </div>
+          <button class="btn" type="submit"><i class="ri-send-plane-line"></i> Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-    <script src="script.js"></script>
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;gap:1rem;align-items:center;flex-wrap:wrap">
+      <div class="muted">Portfólio criado para demonstrar minhas habilidades técnicas e projetos.</div>
+      <div class="socials">
+        <a href="#habilidades" aria-label="Topo"><i class="ri-arrow-up-line"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Atualiza ano
+    document.getElementById('yy').textContent = new Date().getFullYear();
+
+    // Revela elementos ao rolar
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+    },{threshold:.15});
+    els.forEach(el=>io.observe(el));
+  </script>
 </body>
 </html>
+
+<!--
+    Este é um portfólio simples criado por Ualace Vieira.
+    Sinta-se à vontade para personalizar e usar como quiser.
+    Licença: Gratuita para uso pessoal e educacional.
+    Última atualização: Outubro de 2023
+-->

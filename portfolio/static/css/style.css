@@ -1,0 +1,354 @@
+:root{
+    --bg:#0f0722;           /* fundo geral */
+    --card:#1a0f35;         /* cartões */
+    --card-2:#1c1240;       /* cartões alternativos */
+    --text:#eae7ff;         /* texto principal */
+    --muted:#bdb8e6;        /* texto secundário */
+    --brand:#7c5cff;        /* cor de marca */
+    --brand-2:#4be1a8;      /* contraste */
+    --line:#2a1d54;         /* linhas sutis */
+    --shadow: 0 10px 30px rgba(0,0,0,.35);
+    --radius: 18px;
+}
+
+* {
+    box-sizing:border-box
+}
+
+html,body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+    line-height:1.55
+}
+
+img {
+    max-width:100%;
+    display:block
+}
+
+a {
+    color:inherit;
+    text-decoration:none
+}
+.container{
+    width:min(1100px,92vw);
+    margin-inline:auto
+}
+/* ---------- util ---------- */
+.btn{
+    display:inline-flex; 
+    align-items:center;
+    gap:.6rem;
+    background:linear-gradient(135deg,var(--brand),#9a86ff);
+    padding:.9rem 1.2rem;
+    border-radius: 12px; 
+    font-weight:700;
+    letter-spacing:.2px;
+    box-shadow:var(--shadow);
+    transition:transform .15s ease, filter .2s ease
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    filter:brightness(1.04)
+}
+
+.btn.outline{ 
+    background:transparent;
+    border:1px solid var(--line);
+    box-shadow:none
+}
+
+.tag{
+    display:inline-flex;
+    align-items:center;
+    gap:.35rem;
+    border:1px solid var(--line);
+    padding:.45rem .7rem;
+    border-radius:999px;
+    font-size:.85rem;
+    color:var(--muted)
+}
+
+.grid{
+    display:grid;
+    gap:1.2rem
+}
+
+.title{
+    font-family: Poppins,Inter,sans-serif;
+    font-weight: 800;
+    letter-spacing: .3px
+}
+
+.muted{
+    color:var(--muted)
+}
+
+.card{
+    background:linear-gradient(180deg,var(--card),var(--card-2));
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow)}
+
+.card-pad{
+    padding:1.2rem
+}
+
+.divider{
+    height:1px;
+    background:var(--line);
+    width:100%;
+    margin:2rem 0
+}
+
+/* ---------- hero ---------- */
+.hero{
+    padding:86px 0 36px;
+    position:relative;
+    overflow:clip
+}
+.hero .halo{
+    position:absolute;
+    inset:auto -10% -30% -10%;
+    height:360px;
+    background:radial-gradient(60% 60% at 50% 40%, rgba(124,92,255,.35), transparent 60%)
+}
+.hero-inner{
+    display:grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items:center;
+    gap:2rem
+}
+.kicker{
+    color:var(--brand-2);
+    font-weight:700;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    font-size:.78rem
+}
+.hero h1{
+    font-size:clamp(2.2rem,5vw,3.4rem)
+}
+.hero p{
+    max-width:56ch;
+    color:var(--muted);
+    margin:.6rem 0 1.2rem
+}
+.actions{
+    display:flex;
+    gap:.8rem;
+    flex-wrap:wrap
+}
+
+.avatar{
+    width:200px;
+    height:200px;
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+    transform:rotate(2deg)
+}
+
+/* ---------- section header ---------- */
+section{
+    padding:42px 0
+}
+.section-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px
+}
+.section-head h2{
+    font-size:1.6rem
+}
+
+/* ---------- habilidades ---------- */
+.skills{
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr))
+}
+.skill-card{
+    display:flex;
+    gap:.9rem;
+    align-items:flex-start
+}
+.skill-icon{
+    flex:0 0 42px;
+    height:42px;
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    background:rgba(124,92,255,.12);
+    border:1px solid var(--line)
+}
+.skill-card h3{
+    margin:.1rem 0 .2rem;
+    font-size:1.02rem
+}
+.skill-level{
+    display:flex;
+    gap:.35rem;
+    margin-top:.35rem
+}
+.dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#2d2850;
+    border:1px solid var(--line)
+}
+.dot.on{
+    background:var(--brand)
+}
+
+/* ---------- experiência ---------- */
+
+.xp{
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr))
+}
+
+.xp .card-pad{
+    padding:1.1rem 1.1rem 1rem
+}
+
+.xp h3{
+    margin:.2rem 0 .45rem
+}
+
+.xp small{
+    color:var(--muted)
+}
+
+.xp ul{
+    margin:.6rem 0 0 1.1rem
+}
+
+.xp li{
+    margin:.25rem 0
+}
+
+.pill-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem;
+    margin-top:.8rem
+}
+
+/* ---------- projetos ---------- */
+.projects{
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr))
+}
+
+.project{
+    display:flex;
+    flex-direction:column;
+    overflow:hidden
+}
+.project .thumb{
+    aspect-ratio:16/10;
+    background:#120a2b;
+    position:relative
+}
+.project .thumb img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .35s ease
+}
+.project:hover .thumb img{
+    transform:scale(1.04)
+}
+.project .body{
+    padding:1rem
+}
+.project .links{
+    display:flex;
+    gap:.6rem;
+    margin-top:.6rem
+}
+
+/* ---------- contato ---------- */
+.contact-grid{
+    grid-template-columns:1.1fr .9fr
+}
+
+form{
+    display:grid;
+    gap:.8rem
+}
+
+.field{
+    display:grid;
+    gap:.35rem
+}
+
+.field input,.field textarea{
+    background:#140c2d;
+    color:var(--text);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:.9rem
+}
+
+.field input::placeholder,.field textarea::placeholder{
+    color:#8b84ba
+}
+
+textarea{
+    resize:vertical;
+    min-height:120px
+}
+
+/* ---------- footer ---------- */
+footer{
+    padding:34px 0 60px;
+    color:var(--muted)
+}
+
+.socials{
+    display:flex;
+    gap:.8rem
+}
+.socials a{
+    display:grid;
+    place-items:center;
+    width:40px;
+    height:40px;
+    border-radius:10px;
+    border:1px solid var(--line)
+}
+
+.made{
+    margin-top:10px;
+    font-size:.85rem
+}
+
+/* ---------- reveal on scroll ---------- */
+.reveal{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .5s ease, transform .6s ease
+}
+
+.reveal.show{
+    opacity:1;
+    transform:none
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 880px){
+    .hero-inner{
+        grid-template-columns: 1fr;
+        gap:1.4rem
+    }
+    .avatar{
+        margin: 0 auto
+    }
+    .contact-grid{
+        grid-template-columns: 1fr
+    }
+}
