@@ -14,7 +14,16 @@
 
 </head>
 <body>
-  <!-- HERO -->
+  {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+            {{ message }}
+        </li>
+        {% endfor %}
+    </ul>
+  {% endif %}
+  <!-- HERO --> 
   <header class="hero">
     <div class="halo"></div>
     <div class="container hero-inner">
@@ -204,12 +213,14 @@
           </div>
           <div class="made">© <span id="yy"></span> Ualace Vieira. Feito com carinho e café.</div>
         </div>
-        <form class="card card-pad" action="https://formspree.io/f/xbldkzzz" method="POST">
+
+        <form class="card card-pad" action="{% url "enviar_email" %}" method="POST">
+          {% csrf_token %}
           <h3>Envie uma mensagem</h3>
           <div class="grid" style="grid-template-columns:1fr 1fr;gap:.8rem">
             <div class="field">
               <label for="nome">Nome</label>
-              <input id="nome" name="nome" type="text" placeholder="Seu nome" required>
+              <input id="nome" name="nome" type="text" placeholder="Seu Nome" required>
             </div>
             <div class="field">
               <label for="email">Email</label>
