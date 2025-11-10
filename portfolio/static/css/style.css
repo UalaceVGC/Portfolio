@@ -110,11 +110,12 @@ a {
     position:relative;
     overflow:clip
 }
-.hero .halo{
-    position:absolute;
-    inset:auto -10% -30% -10%;
-    height:360px;
-    background:radial-gradient(60% 60% at 50% 40%, rgba(124,92,255,.35), transparent 60%)
+.hero .halo {
+    position: absolute;
+    inset: auto -10% -30% -10%;
+    height: 360px;
+    background: radial-gradient(60% 60% at 50% 40%, rgba(124,92,255,.35), transparent 60%);
+    z-index: -1; 
 }
 .hero-inner{
     display:grid;
@@ -348,7 +349,7 @@ footer{
 }
 
 /* ---------- responsive ---------- */
-@media (max-width: 880px){
+@media (max-width: 800px){
     .hero-inner{
         grid-template-columns: 1fr;
         gap:1.4rem
